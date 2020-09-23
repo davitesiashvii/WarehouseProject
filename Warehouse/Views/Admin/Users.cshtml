@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DAL.Entities.AppUser>
+@{
+    ViewData["Title"] = "Users";
+}
+    <a asp-action="CreateUser" class="btn btn-success mb-3"> Add</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">მომხმარებლის სახელი</th>
+            <th scope="col">ელ.ფოსტა</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserName</td>
+                <td>@item.Email</td>
+                <td>
+                    <form asp-action="DeleteUser" asp-route-id="@item.Id">
+                        <a class="btn btn-warning" asp-action="EditUser" asp-route-id="@item.Id">Edit</a>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

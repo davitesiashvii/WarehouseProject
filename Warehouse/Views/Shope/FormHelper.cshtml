@@ -1,0 +1,23 @@
+﻿@model ShopeFormVM
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="Shope.Name" class="control-label"></label>
+    <input asp-for="Shope.Name" class="form-control" />
+    <span asp-validation-for="Shope.Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Shope.Address" class="control-label"></label>
+    <input asp-for="Shope.Address" class="form-control" />
+    <span asp-validation-for="Shope.Address" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Shope.Type" class="control-label"></label>
+    <input asp-for="Shope.Type" class="form-control" />
+    <span asp-validation-for="Shope.Type" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Shope.ProductionIds" class="control-label"></label>
+    <select asp-for="Shope.ProductionIds" asp-items="Model.Components.ProductionList" class="selectpicker form-co" multiple> </select>
+    <span asp-validation-for="Shope.ProductionIds" class="text-danger"></span>
+</div>

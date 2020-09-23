@@ -1,0 +1,45 @@
+﻿@model ProductionList
+
+@{
+    ViewData["Title"] = "ProductionList";
+}
+    <a asp-action="Add" class="btn btn-success mb-2" >Add</a>
+    <form asp-action="ProductionList" method="post">
+        <div class="input-group">
+            <input class="form-control" type="text" name="SearchTerm" id="SearchTerm"/>
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">ManufacturerCompany</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Productions)
+            {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td><img height="50" src="/@item.Image"></td>
+                <td>@item.Name</td>
+                <td>@item.ManufacturerCompany </td>
+                <td>
+                    <form asp-action="DeleteProduction" asp-route-id="@item.Id">
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+                <td></td>
+            </tr>
+            }
+           
+        </tbody>
+    </table>
+
